@@ -97,7 +97,7 @@
 # FreeType explicitly marks the API to be exported and relies on the compiler
 # to hide all other symbols. CMake supports a C_VISBILITY_PRESET property
 # starting with 2.8.12.
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.10)
 
 if (NOT CMAKE_VERSION VERSION_LESS 3.3)
   # Allow symbol visibility settings also on static libraries. CMake < 3.3
@@ -143,11 +143,9 @@ else ()
 endif ()
 
 
-project(freetype C)
-
-set(VERSION_MAJOR "2")
-set(VERSION_MINOR "10")
-set(VERSION_PATCH "4")
+project(freetype
+  VERSION 2.10.4
+  LANGUAGES C)
 
 # Generate LIBRARY_VERSION and LIBRARY_SOVERSION.
 set(LIBTOOL_REGEX "version_info='([0-9]+):([0-9]+):([0-9]+)'")
